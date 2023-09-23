@@ -1,6 +1,4 @@
 package com.driver.controllers;
-
-import com.driver.model.User;
 import com.driver.services.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,27 +8,19 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-
     @Autowired
     UserServiceImpl userService;
-
     @PostMapping("/register")
-    public ResponseEntity<Void> registerUser(@RequestParam String name, @RequestParam String phoneNumber, @RequestParam String password) {
-        // Register a new user with the provided information
-        userService.registerUser(name, phoneNumber, password);
+    public ResponseEntity<Void> registerUser(@RequestParam String name, @RequestParam String phoneNumber, @RequestParam String password){
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping("/update")
-    public ResponseEntity<User> updatePassword(@RequestParam Integer userId, @RequestParam String password) {
-        // Update the password of an existing user by providing the user's ID and the new password
-        User updatedUser = userService.updateUserPassword(userId, password);
+    public ResponseEntity<User> updatePassword(@RequestParam Integer userId, @RequestParam String password){
         return new ResponseEntity<>(updatedUser, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete")
-    public void deleteUser(@RequestParam Integer userId) {
-        // Delete a user by providing their ID
-        userService.deleteUser(userId);
+    public void deleteUser(@RequestParam Integer userId){
     }
 }

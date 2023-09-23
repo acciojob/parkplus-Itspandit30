@@ -1,38 +1,14 @@
-package com.driver.services.impl;
+package com.driver.services;
 
-import com.driver.model.ParkingLot;
-import com.driver.model.Spot;
-import com.driver.services.ParkingLotService;
-import org.springframework.stereotype.Service;
+public interface ParkingLotService {
 
-@Service
-public class ParkingLotServiceImpl implements ParkingLotService {
+    void deleteSpot(int spotId);
 
-    @Override
-    public void deleteSpot(int spotId) {
-        // Implement spot deletion logic
-    }
+    Spot updateSpot(int parkingLotId, int spotId, int pricePerHour);
 
-    @Override
-    public Spot updateSpot(int parkingLotId, int spotId, int pricePerHour) {
-        // Implement spot update logic
-        return updatedSpot;
-    }
+    void deleteParkingLot(int parkingLotId);
 
-    @Override
-    public void deleteParkingLot(int parkingLotId) {
-        // Implement parking lot deletion logic
-    }
+    ParkingLot addParkingLot(String name, String address);
 
-    @Override
-    public ParkingLot addParkingLot(String name, String address) {
-        // Implement parking lot creation logic
-        return newParkingLot;
-    }
-
-    @Override
-    public Spot addSpot(int parkingLotId, Integer numberOfWheels, Integer pricePerHour) {
-        // Implement spot creation logic
-        return newSpot;
-    }
+    Spot addSpot(int parkingLotId, Integer numberOfWheels, Integer pricePerHour);
 }
